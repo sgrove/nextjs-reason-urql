@@ -91,3 +91,5 @@ let withClient =
   NextUrql.withUrqlClient(. {url: "http://localhost:8080/v1/graphql"});
 
 let default = withClient(. make);
+/* Uncomment this to make it work: */
+/* let default = make; */
