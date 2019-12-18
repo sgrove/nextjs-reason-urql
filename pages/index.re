@@ -36,61 +36,16 @@ let items = count =>
 
 [@react.component]
 let make = () => {
-  ReasonReact.(
-    <MainLayout>
-      "Some GraphQL"->string
-      <Items />
-      <div>
-        <h1> "Syntax errors"->string </h1>
-        {items(100)->array}
-        <br />
-      </div>
-      <div>
-        <h1> "SQL libraries"->string </h1>
-        <h2> "Native"->string </h2>
-        {items(100)->array}
-        <br />
-        <h2> "Node.js"->string </h2>
-        {items(10)->array}
-        <br />
-        <h2> "iOS"->string </h2>
-        {items(20)->array}
-        <br />
-        <h2> "Android"->string </h2>
-        {items(200)->array}
-        <br />
-      </div>
-      <br />
-      <hr />
-      <br />
-      <div>
-        <hr />
-        <hr />
-        <h1> "Editor Integrations"->string </h1>
-        <h2> "Emacs"->string </h2>
-        {items(100)->array}
-        <br />
-        <h2> "VS Code"->string </h2>
-        {items(10)->array}
-        <br />
-        <h2> "vim"->string </h2>
-        {items(20)->array}
-        <br />
-        <h2> "sublime"->string </h2>
-        {items(200)->array}
-        <br />
-        <br />
-        <h2> "Atom"->string </h2>
-        {items(1)->array}
-      </div>
-    </MainLayout>
-  );
+  ReasonReact.(<div> "Some GraphQL"->string <Items /> </div>);
 };
 
-let withClient =
-  NextUrql.withUrqlClient(. {
-    url: "https://serve.onegraph.com/graphql?app_id=d4b3c1de-6186-474e-bf27-0b97070217a5",
-  });
+let options:
+  ReasonUrql.Client.clientOptions(
+    option(ReasonUrql.Client.fetchOptions(Fetch.requestInit)),
+  ) =
+  ReasonUrql.Client.clientOptions(~url="http://localhost:8080/graphql", ());
+
+let withClient = NextUrql.withUrqlClient(. options);
 
 let default = withClient(. make);
 /* Uncomment this to make it work: */
