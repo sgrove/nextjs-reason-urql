@@ -1,7 +1,6 @@
 
 
 import * as $$Array from "bs-platform/lib/es6/array.js";
-import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as Items from "./items.bs.js";
 import * as React from "react";
 import * as NextUrql from "next-urql";
@@ -58,9 +57,11 @@ function Index(Props) {
             }, "Some GraphQL", React.createElement(Items.make, { }), React.createElement("div", undefined, React.createElement("h1", undefined, "Syntax errors"), items(100), React.createElement("br", undefined)), React.createElement("div", undefined, React.createElement("h1", undefined, "SQL libraries"), React.createElement("h2", undefined, "Native"), items(100), React.createElement("br", undefined), React.createElement("h2", undefined, "Node.js"), items(10), React.createElement("br", undefined), React.createElement("h2", undefined, "iOS"), items(20), React.createElement("br", undefined), React.createElement("h2", undefined, "Android"), items(200), React.createElement("br", undefined)), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("div", undefined, React.createElement("hr", undefined), React.createElement("hr", undefined), React.createElement("h1", undefined, "Editor Integrations"), React.createElement("h2", undefined, "Emacs"), items(100), React.createElement("br", undefined), React.createElement("h2", undefined, "VS Code"), items(10), React.createElement("br", undefined), React.createElement("h2", undefined, "vim"), items(20), React.createElement("br", undefined), React.createElement("h2", undefined, "sublime"), items(200), React.createElement("br", undefined), React.createElement("br", undefined), React.createElement("h2", undefined, "Atom"), items(1)));
 }
 
-var $$default = Curry._1(NextUrql.withUrqlClient({
-          url: "http://localhost:8080/v1/graphql"
-        }), Index);
+var withClient = NextUrql.withUrqlClient({
+      url: "http://localhost:8080/v1/graphql"
+    });
+
+var $$default = withClient(Index);
 
 var make = Index;
 
@@ -71,6 +72,7 @@ export {
   passingStyle ,
   items ,
   make ,
+  withClient ,
   $$default ,
   $$default as default,
   

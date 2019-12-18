@@ -1,6 +1,7 @@
-type urqlClient('a) = 'a => React.element;
+type urqlClient('a) = (. 'a) => React.element;
 
-type withUrqlClient = {url: string};
+type clientOptions = {url: string};
 
 [@bs.module "next-urql"]
-external withUrqlClient: withUrqlClient => urqlClient('a) = "withUrqlClient";
+external withUrqlClient: (. clientOptions) => urqlClient('a) =
+  "withUrqlClient";
