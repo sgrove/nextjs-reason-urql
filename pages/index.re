@@ -88,7 +88,9 @@ let make = () => {
 };
 
 let withClient =
-  NextUrql.withUrqlClient(. {url: "http://localhost:8080/v1/graphql"});
+  NextUrql.withUrqlClient(. {
+    url: "https://serve.onegraph.com/graphql?app_id=d4b3c1de-6186-474e-bf27-0b97070217a5",
+  });
 
 let default = withClient(. make);
 /* Uncomment this to make it work: */

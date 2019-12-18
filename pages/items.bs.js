@@ -10,41 +10,63 @@ import * as ReasonUrql from "reason-urql/src/ReasonUrql.bs.js";
 import * as Belt_Option from "bs-platform/lib/es6/belt_Option.js";
 import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 
-var ppx_printed_query = "query   {\ncase  {\nname  \nid  \nclient_id  \nkind  \n}\n\n}\n";
+var ppx_printed_query = "query   {\nnpm  {\ndownloads  {\nlastMonth  {\ncount  \n}\n\n}\n\n}\n\n}\n";
 
 function parse(value) {
   var value$1 = Js_option.getExn(Js_json.decodeObject(value));
-  var match = Js_dict.get(value$1, "case");
+  var match = Js_dict.get(value$1, "npm");
+  var tmp;
+  if (match !== undefined) {
+    var value$2 = Js_option.getExn(Js_json.decodeObject(Caml_option.valFromOption(match)));
+    var match$1 = Js_dict.get(value$2, "downloads");
+    var tmp$1;
+    if (match$1 !== undefined) {
+      var value$3 = Caml_option.valFromOption(match$1);
+      var match$2 = Js_json.decodeNull(value$3);
+      if (match$2 !== undefined) {
+        tmp$1 = undefined;
+      } else {
+        var value$4 = Js_option.getExn(Js_json.decodeObject(value$3));
+        var match$3 = Js_dict.get(value$4, "lastMonth");
+        var tmp$2;
+        if (match$3 !== undefined) {
+          var value$5 = Caml_option.valFromOption(match$3);
+          var match$4 = Js_json.decodeNull(value$5);
+          if (match$4 !== undefined) {
+            tmp$2 = undefined;
+          } else {
+            var value$6 = Js_option.getExn(Js_json.decodeObject(value$5));
+            var match$5 = Js_dict.get(value$6, "count");
+            var tmp$3;
+            if (match$5 !== undefined) {
+              var value$7 = Caml_option.valFromOption(match$5);
+              var match$6 = Js_json.decodeNumber(value$7);
+              tmp$3 = match$6 !== undefined ? match$6 | 0 : Js_exn.raiseError("graphql_ppx: Expected int, got " + JSON.stringify(value$7));
+            } else {
+              tmp$3 = Js_exn.raiseError("graphql_ppx: Field count on type NpmOverallDownloadPeriodData is missing");
+            }
+            tmp$2 = {
+              count: tmp$3
+            };
+          }
+        } else {
+          tmp$2 = undefined;
+        }
+        tmp$1 = {
+          lastMonth: tmp$2
+        };
+      }
+    } else {
+      tmp$1 = undefined;
+    }
+    tmp = {
+      downloads: tmp$1
+    };
+  } else {
+    tmp = Js_exn.raiseError("graphql_ppx: Field npm on type Query is missing");
+  }
   return {
-          case: match !== undefined ? Js_option.getExn(Js_json.decodeArray(Caml_option.valFromOption(match))).map((function (value) {
-                    var value$1 = Js_option.getExn(Js_json.decodeObject(value));
-                    var match = Js_dict.get(value$1, "name");
-                    var tmp;
-                    if (match !== undefined) {
-                      var value$2 = Caml_option.valFromOption(match);
-                      var match$1 = Js_json.decodeString(value$2);
-                      tmp = match$1 !== undefined ? match$1 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value$2));
-                    } else {
-                      tmp = Js_exn.raiseError("graphql_ppx: Field name on type case is missing");
-                    }
-                    var match$2 = Js_dict.get(value$1, "id");
-                    var match$3 = Js_dict.get(value$1, "client_id");
-                    var match$4 = Js_dict.get(value$1, "kind");
-                    var tmp$1;
-                    if (match$4 !== undefined) {
-                      var value$3 = Caml_option.valFromOption(match$4);
-                      var match$5 = Js_json.decodeString(value$3);
-                      tmp$1 = match$5 !== undefined ? match$5 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value$3));
-                    } else {
-                      tmp$1 = Js_exn.raiseError("graphql_ppx: Field kind on type case is missing");
-                    }
-                    return {
-                            name: tmp,
-                            id: match$2 !== undefined ? Caml_option.valFromOption(match$2) : Js_exn.raiseError("graphql_ppx: Field id on type case is missing"),
-                            client_id: match$3 !== undefined ? Caml_option.valFromOption(match$3) : Js_exn.raiseError("graphql_ppx: Field client_id on type case is missing"),
-                            kind: tmp$1
-                          };
-                  })) : Js_exn.raiseError("graphql_ppx: Field case on type query_root is missing")
+          npm: tmp
         };
 }
 

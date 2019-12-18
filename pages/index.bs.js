@@ -58,7 +58,7 @@ function Index(Props) {
 }
 
 var withClient = NextUrql.withUrqlClient({
-      url: "http://localhost:8080/v1/graphql"
+      url: "https://serve.onegraph.com/graphql?app_id=d4b3c1de-6186-474e-bf27-0b97070217a5"
     });
 
 var $$default = withClient(Index);

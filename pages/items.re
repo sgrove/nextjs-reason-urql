@@ -1,14 +1,15 @@
 module GetCases = [%graphql
   {|
-     query {
-       case {
-         name
-         id
-         client_id
-         kind
-       }
-     }
-     |}
+{
+  npm {
+    downloads {
+      lastMonth {
+        count
+      }
+    }
+  }
+}
+|}
 ];
 
 let request = GetCases.make();
