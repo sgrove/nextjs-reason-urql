@@ -8,16 +8,14 @@ module Navigation = {
       className="p-2 h-12 flex border-b border-gray-200 justify-between items-center text-sm">
       <Link href="/">
         <a className="flex items-center w-1/3">
-          <img className="w-5" src="/static/zeit-black-triangle.svg" />
           <span className="text-xl ml-2 align-middle font-semibold">
-            "Next"->s
-            <span className="text-orange-800"> "RE"->s </span>
+            "WhyReason"->s
+            <span className="text-orange-800"> "Sucks?"->s </span>
           </span>
         </a>
       </Link>
       <div className="flex w-2/3 justify-end">
         <Link href="/"> <a className="px-3"> "Home"->s </a> </Link>
-        <Link href="/examples"> <a className="px-3"> "Examples"->s </a> </Link>
         <a
           className="px-3 font-bold"
           target="_blank"

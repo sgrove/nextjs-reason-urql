@@ -3,8 +3,8 @@
   "namespace": false,
   "reason": { "react-jsx": 3 },
   "refmt": 3,
-  "bs-dependencies": ["reason-react", "bs-fetch", "@glennsl/bs-json"],
-  "ppx-flags": [],
+  "bs-dependencies": ["reason-react", "reason-urql", "bs-fetch", "@glennsl/bs-json"],
+  "ppx-flags": ["@baransu/graphql_ppx_re/ppx6"],
   "sources": [
     { "dir": "common" },
     { "dir": "bindings" },

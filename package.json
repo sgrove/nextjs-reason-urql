@@ -8,15 +8,21 @@
     "@glennsl/bs-json": "^3.0.0",
     "@zeit/next-css": "^1.0.1",
     "bs-fetch": "^0.3.1",
-    "bs-platform": "^6.2.1",
+    "bs-platform": "^7.0.1",
     "gentype": "^3.6.0",
+    "graphql": "^14.5.8",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^8.1.0",
     "next-transpile-modules": "^2.3.1",
+    "next-urql": "^0.2.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-is": "^16.12.0",
     "reason-react": "^0.7.0",
-    "request": "^2.88.0"
+    "reason-urql": "^1.4.1",
+    "request": "^2.88.0",
+    "styled-components": "^4.4.1",
+    "urql": "^1.7.0"
   },
   "scripts": {
     "dev": "next",
@@ -26,9 +32,12 @@
     "start": "next start -p $PORT",
     "bs:build": "bsb -make-world",
     "bs:clean": "bsb -clean-world",
-    "bs:start": "bsb -make-world -w"
+    "bs:start": "bsb -make-world -w",
+    "sync-schema": "graphql get-schema && node ./generateFragmentTypes.js",
+    "generate-ppx-schema": "node ./node_modules/gql-tools/cli/gqlschema.js -o graphql_schema.json schema.graphql"
   },
   "devDependencies": {
+    "@baransu/graphql_ppx_re": "^0.4.6",
     "autoprefixer": "^9.5.1",
     "cssnano": "^4.1.10",
     "postcss-easy-import": "^3.0.0",

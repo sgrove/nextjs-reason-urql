@@ -11,14 +11,11 @@ function MainLayout$Navigation(Props) {
                   href: "/",
                   children: React.createElement("a", {
                         className: "flex items-center w-1/3"
-                      }, React.createElement("img", {
-                            className: "w-5",
-                            src: "/static/zeit-black-triangle.svg"
-                          }), React.createElement("span", {
+                      }, React.createElement("span", {
                             className: "text-xl ml-2 align-middle font-semibold"
-                          }, Util.ReactStuff.s("Next"), React.createElement("span", {
+                          }, Util.ReactStuff.s("WhyReason"), React.createElement("span", {
                                 className: "text-orange-800"
-                              }, Util.ReactStuff.s("RE"))))
+                              }, Util.ReactStuff.s("Sucks?"))))
                 }), React.createElement("div", {
                   className: "flex w-2/3 justify-end"
                 }, React.createElement(Link.default, {
@@ -26,11 +23,6 @@ function MainLayout$Navigation(Props) {
                       children: React.createElement("a", {
                             className: "px-3"
                           }, Util.ReactStuff.s("Home"))
-                    }), React.createElement(Link.default, {
-                      href: "/examples",
-                      children: React.createElement("a", {
-                            className: "px-3"
-                          }, Util.ReactStuff.s("Examples"))
                     }), React.createElement("a", {
                       className: "px-3 font-bold",
                       href: "https://github.com/ryyppy/nextjs-default",
@@ -57,7 +49,7 @@ function MainLayout(Props) {
                     }, children)));
 }
 
-var Link$1 = 0;
+var Link$1 = /* alias */0;
 
 var make = MainLayout;
 

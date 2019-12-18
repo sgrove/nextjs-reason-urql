@@ -1,8 +1,12 @@
 
 
-import * as Util from "../common/util.bs.js";
+import * as $$Array from "bs-platform/lib/es6/array.js";
+import * as Curry from "bs-platform/lib/es6/curry.js";
+import * as Items from "./items.bs.js";
 import * as React from "react";
+import * as NextUrql from "next-urql";
 import * as MainLayout from "../layouts/MainLayout.bs.js";
+import * as ReactDOMRe from "reason-react/src/ReactDOMRe.js";
 
 require('../styles/main.css')
 ;
@@ -18,26 +22,54 @@ var P = {
   make: Index$P
 };
 
+var itemStyle = {
+  background: "#eee",
+  border: "1px solid #fff",
+  color: "transparent",
+  cursor: "default",
+  display: "block",
+  float: "left",
+  fontSize: "0",
+  height: "10px",
+  overflow: "hidden",
+  position: "relative",
+  textAlign: "center",
+  width: "10px"
+};
+
+var passing = {
+  background: "#8ec56a"
+};
+
+var passingStyle = ReactDOMRe.Style.combine(itemStyle, passing);
+
+function items(count) {
+  return $$Array.init(count, (function (idx) {
+                var match = (count - 20 | 0) < idx;
+                return React.createElement("div", {
+                            style: match ? itemStyle : passingStyle
+                          }, "OK?");
+              }));
+}
+
 function Index(Props) {
   return React.createElement(MainLayout.make, {
               children: null
-            }, React.createElement("h1", {
-                  className: "text-3xl font-semibold"
-                }, "What is this about?"), React.createElement(Index$P, {
-                  children: Util.ReactStuff.s(" This is a simple template for a Next\n      project using Reason & TailwindCSS.")
-                }), React.createElement("h2", {
-                  className: "text-2xl font-semibold mt-5"
-                }, Util.ReactStuff.s("Quick Start")), React.createElement(Index$P, {
-                  children: React.createElement("pre", undefined, Util.ReactStuff.s("git clone https://github.com/ryyppy/nextjs-default.git my-project\ncd my-project\nrm -rf .git"))
-                }));
+            }, "Some GraphQL", React.createElement(Items.make, { }), React.createElement("div", undefined, React.createElement("h1", undefined, "Syntax errors"), items(100), React.createElement("br", undefined)), React.createElement("div", undefined, React.createElement("h1", undefined, "SQL libraries"), React.createElement("h2", undefined, "Native"), items(100), React.createElement("br", undefined), React.createElement("h2", undefined, "Node.js"), items(10), React.createElement("br", undefined), React.createElement("h2", undefined, "iOS"), items(20), React.createElement("br", undefined), React.createElement("h2", undefined, "Android"), items(200), React.createElement("br", undefined)), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("div", undefined, React.createElement("hr", undefined), React.createElement("hr", undefined), React.createElement("h1", undefined, "Editor Integrations"), React.createElement("h2", undefined, "Emacs"), items(100), React.createElement("br", undefined), React.createElement("h2", undefined, "VS Code"), items(10), React.createElement("br", undefined), React.createElement("h2", undefined, "vim"), items(20), React.createElement("br", undefined), React.createElement("h2", undefined, "sublime"), items(200), React.createElement("br", undefined), React.createElement("br", undefined), React.createElement("h2", undefined, "Atom"), items(1)));
 }
+
+var $$default = Curry._1(NextUrql.withUrqlClient({
+          url: "http://localhost:8080/v1/graphql"
+        }), Index);
 
 var make = Index;
 
-var $$default = Index;
-
 export {
   P ,
+  itemStyle ,
+  passing ,
+  passingStyle ,
+  items ,
   make ,
   $$default ,
   $$default as default,

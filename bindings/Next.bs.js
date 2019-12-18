@@ -13,10 +13,9 @@ var $$Error = { };
 function Make(Page) {
   var inject = ( (cls, fn) => cls.getInitialProps = fn );
   Curry._2(inject, Page.make, Page.getInitialProps);
-  var $$default = Page.make;
   return {
           inject: inject,
-          $$default: $$default
+          $$default: Page.make
         };
 }
 
