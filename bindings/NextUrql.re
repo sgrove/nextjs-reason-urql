@@ -1,7 +1,14 @@
-type urqlClient('a) = (. 'a) => React.element;
-
-type clientOptions = {url: string};
+[@bs.module "next-urql"]
+external withUrqlClient:
+  (. ReasonUrql.Client.clientOptions('a)) =>
+  (. React.component('props)) => React.component('props) =
+  "withUrqlClient";
 
 [@bs.module "next-urql"]
-external withUrqlClient: (. clientOptions) => urqlClient('a) =
+external withUrqlClientMergeExchanges:
+  (
+    . ReasonUrql.Client.clientOptions('a),
+    ReasonUrql.Exchanges.exchange => array(ReasonUrql.Exchanges.exchange)
+  ) =>
+  (. React.component('props)) => React.component('props) =
   "withUrqlClient";
