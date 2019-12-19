@@ -33,7 +33,8 @@
     "bs:clean": "bsb -clean-world",
     "bs:start": "bsb -make-world -w",
     "sync-schema": "graphql get-schema && node ./generateFragmentTypes.js",
-    "generate-ppx-schema": "node ./node_modules/gql-tools/cli/gqlschema.js -o graphql_schema.json schema.graphql"
+    "generate-ppx-schema": "node ./node_modules/gql-tools/cli/gqlschema.js -o graphql_schema.json schema.graphql",
+    "genint": "bsc -bs-re-out lib/bs/pages/Uuid.cmi"
   },
   "devDependencies": {
     "@baransu/graphql_ppx_re": "^0.4.6",

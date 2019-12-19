@@ -1,9 +1,16 @@
+type case = {
+  id: Js.Json.t,
+  client_id: Js.Json.t,
+  name: string,
+  kind: string,
+};
+
 module GetCases = [%graphql
   {|query {
-  case {
+  case @bsRecord {
     name
-    id
-    client_id
+     id
+     client_id
     kind
   }
 }|}
@@ -21,7 +28,7 @@ let make = () => {
   switch (response) {
   | Data(data) =>
     <pre>
-      {data##case->Belt.Array.map(case => case##name)->pretty(2)->string}
+      {data##case->Belt.Array.map(case => case.client_id)->pretty(2)->string}
     </pre>
   | Fetching => <div> "Loading"->React.string </div>
   | Error(e) => <div> e.message->React.string </div>

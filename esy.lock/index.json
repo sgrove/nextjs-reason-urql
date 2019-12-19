@@ -1,6 +1,6 @@
 {
-  "checksum": "3844df8681b4cac313f92f382ac9cfab",
-  "root": "gh-feeds@link-dev:./bs.json",
+  "checksum": "348fca9fb93abb33c064218c591e465e",
+  "root": "gh-feeds@link-dev:./esy.json",
   "node": {
     "ocaml@4.6.1000@d41d8cd9": {
       "id": "ocaml@4.6.1000@d41d8cd9",
@@ -16,15 +16,16 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "gh-feeds@link-dev:./bs.json": {
-      "id": "gh-feeds@link-dev:./bs.json",
+    "gh-feeds@link-dev:./esy.json": {
+      "id": "gh-feeds@link-dev:./esy.json",
       "name": "gh-feeds",
-      "version": "link-dev:./bs.json",
-      "source": { "type": "link-dev", "path": ".", "manifest": "bs.json" },
+      "version": "link-dev:./esy.json",
+      "source": { "type": "link-dev", "path": ".", "manifest": "esy.json" },
       "overrides": [],
       "dependencies": [
         "ocaml@4.6.1000@d41d8cd9", "@opam/reason@opam:3.5.2@f689c2cb",
-        "@opam/merlin@opam:3.3.3@d653b06a"
+        "@opam/merlin@opam:3.3.3@d653b06a",
+        "@baransu/graphql_ppx_re@0.4.6@d41d8cd9"
       ],
       "devDependencies": []
     },
@@ -41,7 +42,7 @@
         "opam": {
           "name": "yojson",
           "version": "1.7.0",
-          "path": "bs.esy.lock/opam/yojson.1.7.0"
+          "path": "esy.lock/opam/yojson.1.7.0"
         }
       },
       "overrides": [],
@@ -69,7 +70,7 @@
         "opam": {
           "name": "result",
           "version": "1.4",
-          "path": "bs.esy.lock/opam/result.1.4"
+          "path": "esy.lock/opam/result.1.4"
         }
       },
       "overrides": [],
@@ -94,7 +95,7 @@
         "opam": {
           "name": "reason",
           "version": "3.5.2",
-          "path": "bs.esy.lock/opam/reason.3.5.2"
+          "path": "esy.lock/opam/reason.3.5.2"
         }
       },
       "overrides": [],
@@ -127,7 +128,7 @@
         "opam": {
           "name": "ppx_derivers",
           "version": "1.2.1",
-          "path": "bs.esy.lock/opam/ppx_derivers.1.2.1"
+          "path": "esy.lock/opam/ppx_derivers.1.2.1"
         }
       },
       "overrides": [],
@@ -153,13 +154,13 @@
         "opam": {
           "name": "ocamlfind",
           "version": "1.8.1",
-          "path": "bs.esy.lock/opam/ocamlfind.1.8.1"
+          "path": "esy.lock/opam/ocamlfind.1.8.1"
         }
       },
       "overrides": [
         {
           "opamoverride":
-            "bs.esy.lock/overrides/opam__s__ocamlfind_opam__c__1.8.1_opam_override"
+            "esy.lock/overrides/opam__s__ocamlfind_opam__c__1.8.1_opam_override"
         }
       ],
       "dependencies": [
@@ -181,13 +182,13 @@
         "opam": {
           "name": "ocamlbuild",
           "version": "0.14.0",
-          "path": "bs.esy.lock/opam/ocamlbuild.0.14.0"
+          "path": "esy.lock/opam/ocamlbuild.0.14.0"
         }
       },
       "overrides": [
         {
           "opamoverride":
-            "bs.esy.lock/overrides/opam__s__ocamlbuild_opam__c__0.14.0_opam_override"
+            "esy.lock/overrides/opam__s__ocamlbuild_opam__c__0.14.0_opam_override"
         }
       ],
       "dependencies": [
@@ -208,7 +209,7 @@
         "opam": {
           "name": "ocaml-migrate-parsetree",
           "version": "1.5.0",
-          "path": "bs.esy.lock/opam/ocaml-migrate-parsetree.1.5.0"
+          "path": "esy.lock/opam/ocaml-migrate-parsetree.1.5.0"
         }
       },
       "overrides": [],
@@ -236,7 +237,7 @@
         "opam": {
           "name": "merlin-extend",
           "version": "0.5",
-          "path": "bs.esy.lock/opam/merlin-extend.0.5"
+          "path": "esy.lock/opam/merlin-extend.0.5"
         }
       },
       "overrides": [],
@@ -261,7 +262,7 @@
         "opam": {
           "name": "merlin",
           "version": "3.3.3",
-          "path": "bs.esy.lock/opam/merlin.3.3.3"
+          "path": "esy.lock/opam/merlin.3.3.3"
         }
       },
       "overrides": [],
@@ -289,7 +290,7 @@
         "opam": {
           "name": "menhir",
           "version": "20190924",
-          "path": "bs.esy.lock/opam/menhir.20190924"
+          "path": "esy.lock/opam/menhir.20190924"
         }
       },
       "overrides": [],
@@ -313,7 +314,7 @@
         "opam": {
           "name": "easy-format",
           "version": "1.3.2",
-          "path": "bs.esy.lock/opam/easy-format.1.3.2"
+          "path": "esy.lock/opam/easy-format.1.3.2"
         }
       },
       "overrides": [],
@@ -338,7 +339,7 @@
         "opam": {
           "name": "dune",
           "version": "1.11.4",
-          "path": "bs.esy.lock/opam/dune.1.11.4"
+          "path": "esy.lock/opam/dune.1.11.4"
         }
       },
       "overrides": [],
@@ -365,7 +366,7 @@
         "opam": {
           "name": "cppo",
           "version": "1.6.6",
-          "path": "bs.esy.lock/opam/cppo.1.6.6"
+          "path": "esy.lock/opam/cppo.1.6.6"
         }
       },
       "overrides": [],
@@ -389,7 +390,7 @@
         "opam": {
           "name": "conf-m4",
           "version": "1",
-          "path": "bs.esy.lock/opam/conf-m4.1"
+          "path": "esy.lock/opam/conf-m4.1"
         }
       },
       "overrides": [],
@@ -409,7 +410,7 @@
         "opam": {
           "name": "biniou",
           "version": "1.2.1",
-          "path": "bs.esy.lock/opam/biniou.1.2.1"
+          "path": "esy.lock/opam/biniou.1.2.1"
         }
       },
       "overrides": [],
@@ -432,7 +433,7 @@
         "opam": {
           "name": "base-unix",
           "version": "base",
-          "path": "bs.esy.lock/opam/base-unix.base"
+          "path": "esy.lock/opam/base-unix.base"
         }
       },
       "overrides": [],
@@ -449,7 +450,7 @@
         "opam": {
           "name": "base-threads",
           "version": "base",
-          "path": "bs.esy.lock/opam/base-threads.base"
+          "path": "esy.lock/opam/base-threads.base"
         }
       },
       "overrides": [],
@@ -464,6 +465,20 @@
         "type": "install",
         "source": [
           "archive:https://registry.npmjs.org/@esy-ocaml/substs/-/substs-0.0.1.tgz#sha1:59ebdbbaedcda123fc7ed8fb2b302b7d819e9a46"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
+    "@baransu/graphql_ppx_re@0.4.6@d41d8cd9": {
+      "id": "@baransu/graphql_ppx_re@0.4.6@d41d8cd9",
+      "name": "@baransu/graphql_ppx_re",
+      "version": "0.4.6",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@baransu/graphql_ppx_re/-/graphql_ppx_re-0.4.6.tgz#sha1:cd4e20a5c5496a665e08aca0f4dea78ecca2e0d7"
         ]
       },
       "overrides": [],
