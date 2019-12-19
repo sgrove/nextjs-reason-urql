@@ -12,4 +12,4 @@ QUERY="query IntrospectionQuery { __schema { queryType { name } mutationType
     { kind name } } } } } } } } "
 
 echo "Downloading..."
-curl -X POST "https://serve.onegraph.com/dynamic?app_id=d4b3c1de-6186-474e-bf27-0b97070217a5" -d "{\"query\":\"$QUERY\"}" -o graphql_schema.json
+curl -X POST "http://localhost:8080/v1/graphql" -d "{\"query\":\"$QUERY\"}" -o graphql_schema.json

@@ -43,7 +43,10 @@ let options:
   ReasonUrql.Client.clientOptions(
     option(ReasonUrql.Client.fetchOptions(Fetch.requestInit)),
   ) =
-  ReasonUrql.Client.clientOptions(~url="http://localhost:8080/graphql", ());
+  ReasonUrql.Client.clientOptions(
+    ~url="http://localhost:8080/v1/graphql",
+    (),
+  );
 
 let withClient = NextUrql.withUrqlClient(. options);
 

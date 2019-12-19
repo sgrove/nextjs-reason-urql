@@ -55,7 +55,7 @@ function Index(Props) {
 }
 
 var options = {
-  url: "http://localhost:8080/graphql"
+  url: "http://localhost:8080/v1/graphql"
 };
 
 var withClient = NextUrql.withUrqlClient(options);

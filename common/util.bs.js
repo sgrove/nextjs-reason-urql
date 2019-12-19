@@ -9,9 +9,14 @@ function ate(prim) {
   return prim;
 }
 
+function pretty(item, indent) {
+  return JSON.stringify(item, null, indent);
+}
+
 var ReactStuff = {
   s: s,
-  ate: ate
+  ate: ate,
+  pretty: pretty
 };
 
 export {
